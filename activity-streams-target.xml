@@ -62,8 +62,6 @@
       properties for an Activity to explicitly describe the Primary and
       Secondary audience. An activity utilizing these extension properties 
       is hereafter referred to as a "Targeted Activity".</t>
-      
-      <t>TODO: Need to clean up the narrative in this section</t>
     </section>
 
     <section title="Notational Conventions">
@@ -79,11 +77,13 @@
     
     <section anchor="properties" title="Targeting Properties">
         
-        <t>The "to", "cc", "bto" and "bcc" properties MAY be used within 
-        an Activity to identify the Primary and Secondary audiences. The value 
-        of each of these properties when serialized using the JSON format is 
-        an array of Activity Streams Objects. The objects can be of any object 
-        type but will typically represent individuals or groups of individuals.</t>
+        <t>The <spanx style="verb">to</spanx>, <spanx style="verb">cc</spanx>, 
+        <spanx style="verb">bto</spanx> and <spanx style="verb">bcc</spanx> 
+        properties MAY be used within an Activity to identify the Primary and 
+        Secondary audiences. The value of each of these properties when 
+        serialized using the JSON format is an array of Objects. The objects 
+        can be of any objectType but will typically represent individuals or 
+        groups of individuals.</t>
         
         <texttable>
           <ttcol align="left" width="15%">Property</ttcol>
@@ -92,19 +92,19 @@
 
           <c><spanx style="verb">to</spanx></c>
           <c>JSON Array of Activity Stream Objects</c>
-          <c>Specifies the Primary Audience of an Activity.</c>
+          <c>Specifies the public primary audience of an activity.</c>
 
           <c><spanx style="verb">cc</spanx></c>
           <c>JSON Array of Activity Stream Objects</c>
-          <c>Specifies the Public Secondary Audience of an Activity.</c>
+          <c>Specifies the public secondary audience of an activity.</c>
           
           <c><spanx style="verb">bto</spanx></c>
           <c>JSON Array of Activity Stream Objects</c>
-          <c>Specifies the Private Primary Audience of an Activity.</c>  
+          <c>Specifies the private primary audience of an activity.</c>  
           
           <c><spanx style="verb">bcc</spanx></c>
           <c>JSON Array of Activity Stream Objects</c>
-          <c>Specifies the Private Second Audience of an Activity.</c>                             
+          <c>Specifies the private secondary audience of an activity.</c>                             
                                        
         </texttable>          
         
@@ -113,24 +113,25 @@
           <t>The prototypical use case for Targeted Activities is the 
           publication and redistribution of Activities through an intermediary.
           A event source generates the activity and publishes it to the 
-          intermediary which determines which subset of events to display 
-          to specific individual users. Such a determination can be made,
-          in part, by identifying the Primary and Secondary Audiences for
-          the activity.</t>
+          intermediary which determines the subset of events to display 
+          to specific individual users or groups. Such a determination can 
+          be made, in part, by identifying the Primary and Secondary Audiences 
+          for each activity.</t>
 
           <t>When the event source generates the activity and specifies values
-          for the "to" and "cc" fields, the intermediary SHOULD redistribute
+          for the <spanx style="verb">to</spanx> and <spanx style="verb">cc</spanx> 
+          fields, the intermediary SHOULD redistribute
           that event with the values of those fields intact, allowing any 
           entity receiving and processing that entity to see who the activity
-          has been targeted to. This is precisely that same model used by the 
+          has been targeted to. This is precisely the same model used by the 
           to and cc fields in email systems.</t>
           
           <t>There are situations, however, in which disclosing the identity
           of specific members of the audience may be inappropriate. For instance,
           a user may not wish to let other users know that they are interested
           in various topics, individuals or types of events. To support this
-          option, an event source generating an activity MAY use the "bto" and 
-          "bcc" properties to list entities to whom the activity should be 
+          option, an event source generating an activity MAY use the <spanx style="verb">bto</spanx> and 
+          <spanx style="verb">bcc</spanx> properties to list entities to whom the activity should be 
           privately targeted. When the intermediary receives an activity 
           containing these properties, it MUST remove them prior to 
           redistributing the activity. The intermediary MAY insert new "bto" 
@@ -172,9 +173,10 @@
   }
 ]]></artwork></figure>
         
-        <t>Upon receiving the activity, the intermediary will generate a
-        modified copy of the activity that omits the "bto" and "bcc" values 
-        and will make that activity available to each of the four people 
+        <t>Upon receiving the activity, the intermediary would generate a
+        modified copy of the activity, omitting the <spanx style="verb">bto</spanx> 
+        and <spanx style="verb">bcc</spanx> values, 
+        and make that activity available to each of the four people 
         identified.</t>
        
 <figure><artwork><![CDATA[
@@ -204,12 +206,17 @@
     </section> 
 
     <section title="Security Considerations">
-      <t>TBD</t>      
+      <t>Targeted Activities are subject to the same security considerations
+      as all activities. Applications publishing targeted activities to 
+      untrusted intermediaries must be aware of the risk that the intermediary 
+      may not properly handle the <spanx style="verb">bto</spanx> and 
+      <spanx style="verb">bcc</spanx> properties leading to inappropriate 
+      disclosure of a targets private audience. Intermediaries and consumers
+      of targeted activities must be aware of the potential for spoofing 
+      and phishing attacks caused by inappropriately or maliciously targeted
+      activities.</t>      
     </section>
 
-    <section title="IANA Considerations">
-      <t>None.</t>
-    </section>
   </middle>
 
   <back>
@@ -230,6 +237,11 @@
         target="http://activitystrea.ms/activity-schema.html">      
          <front>
             <title>Atom Activity Base Schema</title>
+            
+            <author fullname="James Snell" initials="J.M." surname="Snell">
+              <organization>IBM</organization>
+            </author>
+            
             <author fullname="Martin Atkins" initials="M." surname="Atkins">
               <organization>Six Apart</organization>
             </author>
@@ -272,22 +284,6 @@
         </front>
       </reference>
 
-      <reference anchor="RFC3987">
-        <front>
-          <title>Internationalized Resource Identifiers (IRIs)</title>
-
-          <author fullname="Martin Duerst" initials="M." surname="Duerst">
-            <organization></organization>
-          </author>
-
-          <author fullname="Michel Suignard" initials="M." surname="Suignard">
-            <organization></organization>
-          </author>
-
-          <date month="January" year="2005" />
-        </front>
-      </reference>
-
       <reference anchor="RFC4627">
         <front>
           <title>The application/json Media Type for JavaScript Object
@@ -301,37 +297,7 @@
           <date month="July" year="2006" />
         </front>
       </reference>
-
-      <reference anchor="draft-nottingham-http-link-header-10">
-        <front>
-          <title>Web Linking</title>
-
-          <author fullname="Mark Nottingham" initials="M."
-                  surname="Nottingham">
-            <organization></organization>
-          </author>
-
-          <date day="5" month="May" year="2010" />
-        </front>
-      </reference>
-
-      
-      <reference anchor="RFC3339">
-        <front>
-          <title>Date and Time on the Internet: Timestamps</title>
-
-          <author fullname="Graham Klyne" initials="G." surname="Klyne">
-            <organization></organization>
-          </author>
-
-          <date month="July" year="2002" />
-        </front>
-      </reference>
       </references>
 
-    <section title="Acknowledgements">
-      <t>...</t>
-    </section>
   </back>
 </rfc>
-<!-- vim: set expandtab sw=2 ts=2: -->
