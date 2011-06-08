@@ -34,12 +34,12 @@
 
       <t>The Activity Streams specification defines a format for describing
       socially interesting events, or "Activities", about the people and things 
-      an individual cares about.</t>
+      an individual may care about.</t>
       
       <t>Every Activity has both a Primary and Secondary audience. The Primary
       audience consists of those entities either directly involved in the 
-      activity or who "own" the objects involved. The Secondary audience 
-      consists of the collection of entities sharing an interest in the 
+      performance of the activity or who "own" the objects involved. The Secondary 
+      audience consists of the collection of entities sharing an interest in the 
       activity but who are not directly involved (e.g. "followers").</t>
       
       <t>For instance, suppose a social network of three individuals: Bob, Joe 
@@ -110,9 +110,9 @@
         
         <section anchor="cc-bcc" title="Public and Private Audiences">
         
-          <t>The prototypical use case for Targeted Activities is the 
+          <t>The prototypical use case for a Targeted Activity is the 
           publication and redistribution of Activities through an intermediary.
-          A event source generates the activity and publishes it to the 
+          An event source generates the activity and publishes it to the 
           intermediary which determines the subset of events to display 
           to specific individual users or groups. Such a determination can 
           be made, in part, by identifying the Primary and Secondary Audiences 
@@ -133,7 +133,7 @@
           option, an event source generating an activity MAY use the <spanx style="verb">bto</spanx> and 
           <spanx style="verb">bcc</spanx> properties to list entities to whom the activity should be 
           privately targeted. When the intermediary receives an activity 
-          containing these properties, it MUST remove them prior to 
+          containing these properties, it MUST remove their values prior to 
           redistributing the activity. The intermediary MAY insert new "bto" 
           and "bcc" property values containing empty arrays as an indication 
           that a private audience exists without disclosing the specific 
@@ -176,8 +176,7 @@
         <t>Upon receiving the activity, the intermediary would generate a
         modified copy of the activity, omitting the <spanx style="verb">bto</spanx> 
         and <spanx style="verb">bcc</spanx> values, 
-        and make that activity available to each of the four people 
-        identified.</t>
+        and display that to each of the four entities identified.</t>
        
 <figure><artwork><![CDATA[
   {
@@ -233,10 +232,10 @@
           <date month="March" year="1997" />
         </front>
       </reference>
-      <reference anchor="activity-schema-01" 
-        target="http://activitystrea.ms/activity-schema.html">      
+      <reference anchor="json-activity-streams-01" 
+        target="http://activitystrea.ms/specs/json/1.0/">      
          <front>
-            <title>Atom Activity Base Schema</title>
+            <title>JSON Activity Streams 1.0</title>
             
             <author fullname="James Snell" initials="J.M." surname="Snell">
               <organization>IBM</organization>
@@ -261,6 +260,8 @@
             <author fullname="Rob Dolin" initials="R." surname="Dolin">
               <organization>Microsoft</organization>
             </author>
+            
+            <date month="May" year="2011" />
           </front>
       </reference>
 
