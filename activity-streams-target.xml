@@ -265,25 +265,6 @@
           </front>
       </reference>
 
-      <reference anchor="RFC3986">
-        <front>
-          <title>Uniform Resource Identifier (URI)</title>
-
-          <author fullname="Tim Berners-Lee" initials="T." surname="Berners-Lee">
-            <organization>W3C/MIT</organization>
-          </author>
-
-          <author fullname="Roy Fielding" initials="R." surname="Fielding">
-            <organization>Day Software</organization>
-          </author>
-          
-          <author fullname="Larry Masinter" initials="L." surname="Masinter">
-            <organization>Adobe Systems</organization>
-          </author>
-
-          <date month="January" year="2005" />
-        </front>
-      </reference>
 
       <reference anchor="RFC4627">
         <front>
