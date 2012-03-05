@@ -11,15 +11,16 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="exp" docName="json-activity-01" ipr="none">
+<?rfc private="Activity Streams Working Group"?>
+<rfc>
   <front>
-    <title abbrev="ActivityStreams">Audience Targeting for JSON Activity Streams (Draft)</title>
+    <title abbrev="ActivityStreams">Audience Targeting for JSON Activity Streams</title>
 
     <author fullname="James M Snell" initials="J.M." surname="Snell">
       <organization>IBM</organization>
     </author>
 
-    <date month="March" year="2011" />
+    <date month="March" year="2012" />
 
     <abstract>
       <t>This specification details an extension to the JSON Activity 
@@ -214,6 +215,33 @@
       of targeted activities must be aware of the potential for spoofing 
       and phishing attacks caused by inappropriately or maliciously targeted
       activities.</t>      
+    </section>
+    
+    <section title="License">
+    
+      <t>This Specification is made available under the Open Web 
+      Foundation Agreement Version 1.0, which is available at 
+      http://www.openwebfoundation.org/legal/.</t>
+
+      <t>You can review the signed copies of the Open Web Foundation 
+      Agreement Version 1.0 for this Specification at 
+      http://activitystrea.ms/licensing/, which may also include additional 
+      parties to the authors.</t>
+
+      <t>Your use of this Specification may be subject to other third party 
+      rights. THIS SPECIFICATION IS PROVIDED "AS IS." The contributors 
+      expressly disclaim any warranties (express, implied, or otherwise), 
+      including implied warranties of merchantability, non-infringement, 
+      fitness for a particular purpose, or title, related to the Specification. 
+      The entire risk as to implementing or otherwise using the Specification 
+      is assumed by the Specification implementer and user. IN NO EVENT WILL 
+      ANY PARTY BE LIABLE TO ANY OTHER PARTY FOR LOST PROFITS OR ANY FORM OF 
+      INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER 
+      FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION 
+      OR ITS GOVERNING AGREEMENT, WHETHER BASED ON BREACH OF CONTRACT, TORT 
+      (INCLUDING NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT THE OTHER PARTY 
+      HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</t>
+    
     </section>
 
   </middle>
