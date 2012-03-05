@@ -205,6 +205,36 @@
         
     </section> 
 
+    <section title="The &quot;alias&quot; Object Property">
+    
+      <t>Within Activity Streams objects, the "alias" property is a simple, 
+      plain-text string value that serves as an alternative meaningful label 
+      for the object in addition to the "id". For instance, within some systems, 
+      groups can be identified by both a unique global ID and a more friendly
+      label such as "@friends" or "@network", etc. In some systems, the alias
+      can be used as an alternative to the "id" in certain situations.</t>
+      
+      <t>The following example shows an activity targeted at a group object 
+      aliased as "@friends":</t>
+      
+      <figure><artwork>
+  {
+    "to":[
+      {"objectType":"group",
+       "alias":"@friends"}
+    ],
+    "verb":"post",
+    "actor":{
+      "objectType":"person",
+      "id":"tag:example.org,2011:jane"},
+    "object":{
+      ...
+    }
+  }
+      </artwork></figure>
+      
+    </section>
+
     <section title="Security Considerations">
       <t>Targeted Activities are subject to the same security considerations
       as all activities. Applications publishing targeted activities to 
