@@ -63,6 +63,7 @@
       properties for an Activity to explicitly describe the Primary and
       Secondary audience. An activity utilizing these extension properties 
       is hereafter referred to as a "Targeted Activity".</t>
+      
     </section>
 
     <section title="Notational Conventions">
@@ -200,6 +201,17 @@
     }
   }
 ]]></artwork></figure> 
+
+
+      <t>Note that audience targeting information included within an Activity
+      using these mechanisms is intended only to express the intent of the 
+      entity creating the activity. With clear exception given to the 
+      appropriate handling of "bto" and "bcc", this specification leaves it 
+      up to individual implementations to determine how the audience targeting
+      information is to be utilized. Further, in the absence of any targeting
+      information within an Activity, this specification does not define any
+      default primary or secondary audience. The selection of default primary or
+      secondary audiences is solely at the discretion of the implementation.</t>
         
         </section>
         
