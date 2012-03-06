@@ -213,7 +213,7 @@
 ]]></artwork></figure> 
 
       <t>Implementations are free to use what they know about an activity's 
-      Primary and Secondary audiences to determine access, change and redistribution
+      primary and secondary audiences to determine access, change and redistribution
       controls for the activity (e.g. limiting who is able to see the activity). However,
       the mere presence of targeting properties does not imply that distribution 
       of the activity is limited to only explicitly targeted entities.
@@ -267,7 +267,7 @@
       contexts. For instance, two separate systems may each interpret the "@friends"
       alias in distinctly different ways. It is recommended that use of such simple aliases 
       be limited to communication between parties that share a common understanding 
-      of the meaning and interpretation of such simple aliases.</t>
+      of their meaning and interpretation.</t>
      
       <figure><preamble>The following example shows an activity targeted at a group object 
       aliased using a fully-qualified IRI:</preamble><artwork>
